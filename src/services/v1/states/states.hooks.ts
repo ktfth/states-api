@@ -1,8 +1,9 @@
 
+import population from '../../../hooks/population';
 export default {
   before: {
     all: [],
-    find: [],
+    find: [population()],
     get: [],
     create: [],
     update: [],
