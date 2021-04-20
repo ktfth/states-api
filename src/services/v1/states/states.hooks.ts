@@ -3,7 +3,7 @@ import population from '../../../hooks/population';
 export default {
   before: {
     all: [],
-    find: [population()],
+    find: [],
     get: [],
     create: [],
     update: [],
@@ -13,7 +13,7 @@ export default {
 
   after: {
     all: [],
-    find: [],
+    find: [population()],
     get: [],
     create: [],
     update: [],
