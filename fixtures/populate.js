@@ -18,8 +18,21 @@ const states = [
 	{ name: 'Bahia', uf: 'BA' }
 ];
 
-for (let i = 0; i < states.length; i += 1) {
-	stateService
-		.create(states[i])
-		.then(res => console.log(res));
-}
+stateService
+	.find()
+	.then(res => {
+		if (!res.total) {
+			for (let i = 0; i < states.length; i += 1) {
+				stateService
+					.create(states[i])
+					.then(res => {
+						console.log(res);
+						if (i === (states.length - 1)) {
+							process.exit(0);
+						}
+					});
+			}
+		} else {
+			process.exit(0);
+		}
+	});
